@@ -6,7 +6,7 @@ var model = require("./models/models");
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/angular1todo");
+mongoose.connect("mongodb://sahil5695:sahil5695@ds119588.mlab.com:19588/angulartodo");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
