@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Angular Todo</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="mainApp" ng-controller="mainController">
+    <div class="container mainhead">
+        <h2 class="text-center" >Todo App</h2>
+        <form class="form-inline text-center" style="margin:30px 20px;">
+          <input type="text" class="form-control" style="width:400px;" ng-model="newTodo">
+          <button type="submit" class="btn btn-primary" ng-click="addTodo(newt)">Add</button>
+        </form>
+        <h5 class="text-center" style="color:red;" ng-show="showerr">Todo can't be empty</h5>
+        <ul >
+          <li ng-repeat="todo in todos">
+            <span style="width:40px;">
+              <input type="checkbox" style="vertical-align:middle;" ng-click="updateDone(todo)" ng-model="todo.complete">
+            </span>
+            <div style="width:100%;">
+              <h4 style="margin:0;" class="complete-{{ todo.complete }}" ng-show="!editing" ng-style="textstyle">{{ todo.todo }}</h4>
+              <input type="text" ng-model="todo.todo" class="form-control" ng-show="editing">
+            </div>
+            <span style="width:100px;text-align:center;">
+              <span class="glyphicon glyphicon-pencil" ng-show="!editing" ng-click="editing=!editing" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-trash" ng-show="!editing" ng-click="deleteTodo(todo._id)" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-ok" ng-show="editing" ng-click="userTodo(todo);editing=!editing" aria-hidden="true"></span>
+            </span>
+          </li>
+        </ul>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+.mainhead {
+    border: 1px solid #eee;
+    max-width: 600px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.mainhead ul {
+    list-style: none;
+    padding: 0;
+    margin-top:20px;
+}
+
+.mainhead ul li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.glyphicon {
+    font-size: 1.2em;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.complete-true {
+    text-decoration: line-through;
+}
